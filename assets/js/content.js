@@ -94,7 +94,7 @@ const loadPages = async function () {
             const p = content.querySelector('p');
             const data = p.innerHTML.split('<br>');
             const waNumber = (/\+(\d+)/g).exec(data[1])[1];
-            const confirmationUrl = `https://wa.me/${waNumber}?text=Saya%20sudah%20transfer%20donasi%untuk%SION`;
+            const confirmationUrl = `https://wa.me/${waNumber}?text=Saya%20sudah%20transfer%20donasi%20untuk%20SION`;
             document.querySelector('#cta p').innerHTML = data[0];
             document.querySelector('#cta a.cta-btn').href = confirmationUrl;
         }
