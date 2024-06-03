@@ -77,7 +77,7 @@ const loadPages = async function () {
                         color = '#1fc4aadb';
                 }
                 const div = parser.parseFromString(`
-                <div class="col-lg-4 col-md-6 mb-3">
+                <div class="col-lg-3 col-md-6 mb-3">
                     <div class="icon-box" data-aos="zoom-in-left">
                     <div class="icon"><i class="bi ${icon}" style="color:${color}"></i></div>
                     <h4 class="title">${li.innerText}</h4>
@@ -85,7 +85,7 @@ const loadPages = async function () {
                 </div>
                 `, 'text/html')
                 .querySelector('div');
-                document.querySelector('#services .row').appendChild(div);
+                document.querySelector('#values .row').appendChild(div);
             });
         }
 
@@ -103,7 +103,6 @@ const loadPages = async function () {
         else if (page.id == 17) {
             const p = content.querySelector('p');
             const data = p.innerHTML.split('<br>');
-            console.log('alamat & kontak', data);
             document.querySelector('#contact .address p').innerHTML = 
                 data[0] + '<br>' + data[1] + '<br>' + data[2];
 
@@ -116,7 +115,18 @@ const loadPages = async function () {
 
         // pernyataan iman
         else if (page.id == 15) {
-             // TODO
+            content.querySelectorAll('li').forEach(li => {
+                const div = parser.parseFromString(`
+                <div class="col-md-12 col-lg-6 mb-3">
+                    <div class="icon-box" data-aos="zoom-in-left">
+                        <div class="icon"><i class="bi bi-arrow-right-circle-fill" style="color:#3fcdc7"></i></div>
+                        <p class="description">${li.innerText}</p>
+                    </div>
+                </div>
+                `, 'text/html')
+                .querySelector('div');
+                document.querySelector('#statements .row').appendChild(div);
+            });
         }
 
         // media sosial
