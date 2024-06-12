@@ -89,6 +89,18 @@ const loadPages = async function () {
             });
         }
 
+        // struktur organisasi
+        else if (page.id == 33) {
+            const img = content.querySelector('img');
+            const h2 = content.querySelector('h2');
+            const p = content.querySelector('p');
+            document.querySelector('#portfolio .portfolio-img img').src = img.src;
+            document.querySelector('#portfolio .portfolio-info a').href = img.src;
+            document.querySelector('#portfolio .portfolio-info a').title = h2.innerText;
+            document.querySelector('#portfolio .portfolio-info h4').innerHTML = h2.innerHTML;
+            document.querySelector('#portfolio .portfolio-info p').innerHTML = p.innerHTML;
+        }
+
         // donasi
         else if (page.id == 21) {
             const p = content.querySelector('p');
@@ -172,8 +184,4 @@ const loadPages = async function () {
     }
 }
 
-/*============= READY =================*/
-
-document.addEventListener("DOMContentLoaded", function() {
-    loadPages();
-});
+window.addEventListener('load', loadPages);
